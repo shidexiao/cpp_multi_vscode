@@ -1,0 +1,67 @@
+# ====================== 通用IDE配置（VSCode+CLion） ======================
+# VSCode专属（所有用户都排除）
+.vscode/
+*.code-workspace
+.vscode-insiders/
+
+main.dSYM/
+
+# CLion/JetBrains全系IDE专属（IntelliJ/GoLand等都兼容）
+.idea/
+cmake-build-*/  # CLion自动生成的编译目录
+*.iml           # CLion模块文件
+*.iws           # CLion工作区文件
+*.ipr           # CLion项目文件
+.gradle/        # 若用到JNI/Android兼容，顺带排除
+out/            # JetBrains IDE输出目录
+
+# ====================== C/C++/CMake通用编译产物 ======================
+# CMake构建目录/配置文件
+build/          # 手动创建的编译目录（VSCode/CLion通用）
+CMakeCache.txt
+cmake_install.cmake
+CMakeFiles/
+Makefile
+*.cmake
+*.ninja
+*.ninja_log
+compile_commands.json  # CMake生成的编译命令文件（可选排除，若不需要共享）
+
+# 编译产物（跨平台）
+*.o             # 目标文件
+*.out           # 可执行文件（Linux/macOS）
+*.exe           # 可执行文件（Windows）
+*.dll           # 动态链接库（Windows）
+*.so            # 共享对象（Linux）
+*.dylib         # 动态库（macOS）
+*.a             # 静态库（Linux/macOS）
+*.lib           # 静态库（Windows）
+*.pdb           # 调试符号文件（Windows）
+*.dSYM/         # 调试符号目录（macOS）
+
+# ====================== 系统/临时文件（跨平台） ======================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+# 编辑器临时文件
+*.swp           # Vim
+*.swo
+*~              # 各类编辑器
+*.bak
+*.tmp
+*.log           # 日志文件（可选，若不需要共享）
+
+# ====================== 第三方库（可选） ======================
+# 若第三方库（如fmt/Boost）体积大，排除后在README说明安装方式
+3rdparty/
+lib/
+external/
